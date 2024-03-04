@@ -2,6 +2,7 @@
   "manifest_version": 3,
   "name": "Image Source Copier",
   "version": "1.0",
+  "author": "Abdul Osman",
   "description": "Automatically copy image sources",
   "permissions": ["activeTab"],
   "background": {
@@ -10,11 +11,11 @@
   "action": {
     "default_popup": "interface.html",
     "default_icon": {
-      "fa": "images/fa-logo.png"
+      "16": "images/fa-logo.png"
     }
   },
   "icons": {
-    "fa": "images/fa-logo.png"
+    "16": "images/fa-logo.png"
   },
   "content_scripts": [
     {
@@ -23,3 +24,4 @@
     }
   ]
 }
+
