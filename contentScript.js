@@ -1,26 +1,35 @@
 // contentScript.js
 
-function handleImageClick(event) {
-  var imgSrc = event.target.src;
-  console.log(imgSrc);
-  alert('Image source copied to clipboard:\n\n' + imgSrc);
-  navigator.clipboard.writeText(imgSrc)
-    .catch(err => {
-      console.error('Failed to copy image source:', err);
-    });
+function handleElementClick(event) {
+  var src;
+  if (event.target.tagName === 'IMG') {
+    src = event.target.src;
+  } else if (event.target.tagName === 'VIDEO') {
+    src = event.target.poster;
+  }
+
+  if (src) {
+    alert('Source URL copied to clipboard:\n' + src);
+    navigator.clipboard.writeText(src)
+      .then(() => {
+        console.log('Source URL copied to clipboard:', src);
+      })
+      .catch(err => {
+        console.error('Failed to copy source URL:', err);
+      });
+  }
 }
 
-function startImageListener() {
+function startElementListener() {
   document.addEventListener('click', function(event) {
-    console.log('click');
-    if (event.target.tagName === 'IMG') {
-      handleImageClick(event);
+    if (event.target.tagName === 'IMG' || event.target.tagName === 'VIDEO') {
+      handleElementClick(event);
     }
   });
 }
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-  if (message.action === 'startImageListener') {
-    startImageListener();
+  if (message.action === 'startElementListener') {
+    startElementListener();
   }
 });
