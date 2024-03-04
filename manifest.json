@@ -9,9 +9,13 @@
   },
   "action": {
     "default_popup": "interface.html",
-    "default_icon": {}
+    "default_icon": {
+      "fa": "images/fa-logo.png"
+    }
   },
-  "icons": {},
+  "icons": {
+    "fa": "images/fa-logo.png"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
