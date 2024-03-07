@@ -13,6 +13,8 @@ function handleImageClick(event) {
     navigator.clipboard.writeText(src)
       .then(() => {
         console.log('Source URL copied to clipboard:', src);
+        // Open a new tab with the specified URL
+        chrome.runtime.sendMessage({ action: 'openNewTab', url: `https://iframetester.com/?url=${src}` });
       })
       .catch(err => {
         console.error('Failed to copy source URL:', err);

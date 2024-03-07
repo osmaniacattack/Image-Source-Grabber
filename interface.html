@@ -4,6 +4,15 @@
   <title>Image Source Copier</title>
   <style>
     /* Define button style */
+
+    h1 {
+      text-align: center;
+    }
+
+    body {
+      width: 480px;
+    }
+
     #copyButton {
       background-color: orange;
       color: white;
@@ -13,18 +22,35 @@
       cursor: pointer;
       font-size: 16px;
       font-weight: bold;
+      width: 100%;
     }
 
     /* Define hover effect */
     #copyButton:hover {
       background-color: darkorange;
     }
-    
+
+    #directions {
+      margin-bottom: 20px;
+    }
   </style>
   <script src="interface.js"></script>
 </head>
 <body>
+  <h1>First Arriving Media Sourcer</h1>
   <!-- Button with custom styling -->
   <button id="copyButton">Copy Image Source</button>
+
+  <!-- Directions -->
+  <div id="directions">
+    <h3>Directions:</h3>
+    <ul>
+      <li>Click on "Copy Image Source"</li>
+      <li>Navigate to the image or video you want to check the source for</li>
+      <li>Once you click on the media, the source will be copied to your clipboard and a new page will open up to test if it can be iframed</li>
+      <li>If it can be iframed, paste the src string into the dashboard you are working on</li>
+      <li>If a new tab does not open, a media source was not clicked or a src was not publicly available</li>
+    </ul>
+  </div>
 </body>
 </html>

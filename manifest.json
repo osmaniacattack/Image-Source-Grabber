@@ -4,7 +4,7 @@
   "version": "1.0",
   "author": "Abdul Osman",
   "description": "Automatically copy image sources",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "tabs"],
   "background": {
     "service_worker": "background.js"
   },
